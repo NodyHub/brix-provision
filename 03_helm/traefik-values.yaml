@@ -1,0 +1,15 @@
+serviceType: LoadBalancer
+loadBalancerIP: 192.168.178.15
+
+dashboard:
+  enabled: true
+  domain: traefik-dash.k8s.home
+
+rbac:
+  enabled: true
+
+# # Watch only following NS
+# kubernetes:
+#   namespaces:
+#     - default
+#     - traefik

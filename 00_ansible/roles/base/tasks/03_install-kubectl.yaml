@@ -1,0 +1,49 @@
+
+######################################################################################
+# System packages
+######################################################################################
+
+- name: "Install system packages"
+  become: true
+  apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - gnupg-agent
+      - software-properties-common
+
+######################################################################################
+# Kubernets Repo
+######################################################################################
+
+- name: "Add K8s official GPG key"
+  became: true
+  apt_key:
+    url: "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
+    state: present
+
+- name: "Set up the stable K8s repository"
+  became: true
+  apt_repository:
+    repo: "{{ K8S_REPO }}"
+    state: present
+    filename: kubernetes
+
+######################################################################################
+# Install kubectl
+######################################################################################
+
+- name: "Install kubectl"
+  became: true
+  apt:
+    name:
+      - kubectl={{ K8S_VERSION }}
+    state: present
+
+- name: "Fix package versions"
+  became: true
+  dpkg_selections:
+    name: "kubectl"
+    selection: hold
+

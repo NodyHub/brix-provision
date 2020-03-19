@@ -1,0 +1,28 @@
+##########################################################################################
+# Install System package, repo and server
+##########################################################################################
+
+- name: "Install system package"
+  become: true
+  apt:
+    name:
+      - software-properties-common
+
+- name: "Add GlusterFS repo"
+  became: true
+  apt_repository:
+      repo: ppa:gluster/glusterfs-7
+
+- name: "Install GlusterFS server package"
+  become: true
+  apt:
+    name:
+      - glusterfs-server
+
+- name: Start and enable service glusterd
+  become: true
+  service:
+    name: glusterd
+    state: started
+    enabled: true
+

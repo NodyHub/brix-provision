@@ -1,0 +1,3 @@
+- name: Install Python
+  became: true
+  raw: DEBIAN_FRONTEND=noninteractive apt -y update && apt install -y python-minimal

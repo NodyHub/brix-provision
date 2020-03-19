@@ -1,0 +1,3 @@
+---
+# tasks file for all Nodes
+- include: install.yaml

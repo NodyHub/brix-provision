@@ -1,0 +1,27 @@
+- name: "Install utilities"
+  become: true
+  apt:
+    name:
+      - curl
+      - git
+      - htop
+      - tmux
+      - tree
+      - vim
+      - zsh
+
+- name: Remove "snapd, cloud-init" package
+  became: true
+  apt:
+    name: 
+      - snapd
+      - cloud-init
+    state: absent
+
+- name: "Upgrade all packages to the latest version"
+  become: true
+  apt:
+    name: "*"
+    state: latest
+    force_apt_get: yes
+
