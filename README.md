@@ -11,7 +11,7 @@
 
 - Integrate GlusterFS security features, e.g., source IP verfication!?
 
-## K8s
+## K8s TODO's
 
 - Deploy PSP
 - Deploy default NSP
