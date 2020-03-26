@@ -3,3 +3,4 @@
 - include: 01_install-base.yaml
 - include: 02_install-docker.yaml
 - include: 03_install-kubectl.yaml
+- include: 04_set-timezone.yaml
